@@ -1,0 +1,13 @@
+#!/bin/bash
+strings -d a.out > a.strings
+cp a.out copy.out
+while read line
+do   
+   ./a.out $line &> output   
+   if grep -F -q "Access granted \o/" output; then
+   echo $line
+   break
+   fi  
+   cp copy.out a.out
+   chmod +x ./a.out  
+done<"a.strings"
