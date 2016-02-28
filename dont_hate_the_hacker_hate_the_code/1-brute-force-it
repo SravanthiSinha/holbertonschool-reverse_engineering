@@ -11,3 +11,6 @@ do
    cp copy.out a.out
    chmod +x ./a.out  
 done<"a.strings"
+rm a.strings
+rm copy.out
+rm output
